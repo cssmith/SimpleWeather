@@ -1,0 +1,44 @@
+Simple Weather using Ruby
+
+The accompanying Ruby files retrieve current weather data from Wunderground.com
+and make the data easily accessible in Ruby. The Wunderground API is described at
+http://wiki.wunderground.com/index.php/API_-_XML
+
+The weather data can be obtained using either the Weather class or the WeatherLibxml
+class. The only difference between the two is how the result from the Wunderground
+API call is parsed: REXML is used in weather.rb, and libxml is used in weather_libxml.rb.
+The libxml version is faster, but REXML is distributed as part of standard ruby.
+
+To create an object with the weather data, simply construct a Weather (or WeatherLibxml)
+object using the location you want the weather for. The API accepts the following input,
+according to Wundeground's API documentation (not all have been tested here):
+  -zipcode (US or Canadian)
+  -city state; city, state
+  -city
+  -state
+  -country
+  -airport code (3-letter or 4-letter)
+  -lat,lon
+The location should be passed into the constructor as a string. If no location
+is provided, "Philadelphia, PA" is used as the location.
+
+The results of the API call for the current conditions and the forecast can be
+accessed via the @now and @forecast attributes. Additionally, the following
+attributes are available:
+  location - A string describing the location of the weather
+  weather - A string describing current weather conditions
+  temp_c - The temperature, in degrees C
+  temp_f - The temperature, in degrees F
+  observation_time - The time of the weather observation
+  wind - A string describing current wind conditions
+  sunset - A string representing the time of sunset
+  sunrise - A string representing the time of sunrise
+  forecast_days - An array of Day objects (see below)
+  source - A string describing the source of data
+  now_icon - An icon for current weather conditions
+
+A Day object is used to contain data for a forecast period. There are usually 5
+Day objects, each containing the following attributes:
+  title - The title of the period (eg, "Tonight", "Wednesday", "Wednesday Night")
+  text - A string describing weather conditions
+  icon - An icon representing the weather conditions

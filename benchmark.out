@@ -1,0 +1,3 @@
+Enter location:              user     system      total        real
+rexml:   0.480000   0.020000   0.500000 (  1.529692)
+libxml:  0.010000   0.020000   0.030000 (  0.836278)

@@ -1,0 +1,33 @@
+<p>
+  The current conditions in <%=h @myweather.location %> are: <br>
+  <img src="<%=h @myweather.now_icon %>" /><br>
+  <b><%=h @myweather.current_string %></b><br>
+  <b>Wind: </b><%=h @myweather.wind %><br>
+  <b>Sunrise: </b> <%=h @myweather.sunrise %><br>
+  <b>Sunset: </b> <%=h @myweather.sunset %><br>
+</p>
+
+<p>
+  <table border=1>
+    <tr>
+      <% @myweather.forecast_days.each do |day| %>
+      <td><b><%=h day.title %></b></td>
+      <% end %>
+    </tr>
+    <tr>
+      <% @myweather.forecast_days.each do |day| %>
+      <td><img src="<%=h day.icon %>" /><br></td>
+      <% end %>
+    </tr>
+    <tr>
+      <% @myweather.forecast_days.each do |day| %>
+      <td><b><%=h day.text %></b></td>
+      <% end %>
+    </tr>
+  </table>
+</p>
+
+<p>
+  <i><%=h @myweather.observation_time %></i><br>
+  <i>Weather data courtesy of <%=h @myweather.source %></i>
+</p>
