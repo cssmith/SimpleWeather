@@ -42,3 +42,7 @@ Day objects, each containing the following attributes:
   title - The title of the period (eg, "Tonight", "Wednesday", "Wednesday Night")
   text - A string describing weather conditions
   icon - An icon representing the weather conditions
+
+Also included here are example uses. weather_to_html.rb and weather_libxml_to_html.rb
+will print a simple HTML page (see output.html) containing weather data.
+weather_benchmark.rb shows the performance differences between REXML and libxml.
